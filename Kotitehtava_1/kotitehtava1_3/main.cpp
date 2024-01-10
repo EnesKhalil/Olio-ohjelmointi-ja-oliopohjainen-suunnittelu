@@ -36,6 +36,7 @@ int arvauspeli(int maxnum){
         }
         if(user_num == game_num){
             cout<< "Right answer"<< endl;
+            break;
         }
         guess_times++;
     }
