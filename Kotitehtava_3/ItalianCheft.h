@@ -6,9 +6,9 @@ using namespace std;
 class ItalianChef: public Chef{
 public:
    ~ItalianChef();
-    ItalianChef(string);
+    ItalianChef(string, int, int);
     string getName();
-    void makePasta(int, int);
+    void makePasta();
 
 private:
     int vesi;

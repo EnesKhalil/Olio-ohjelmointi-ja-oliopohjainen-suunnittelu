@@ -8,9 +8,9 @@ int main()
 {
 
     Chef kokki("Jyrki");
-    ItalianChef kokki2("Mario");
+    ItalianChef kokki2("Mario", 100, 250);
     kokki.makeSalad();
-    kokki2.makePasta(100, 250);
+    kokki2.makePasta();
 
     return 0;
 }
