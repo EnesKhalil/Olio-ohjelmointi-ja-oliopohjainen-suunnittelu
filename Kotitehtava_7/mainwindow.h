@@ -40,5 +40,7 @@ private:
     QTimer *myTimerObject1;
     int player1Time = 0, player2Time = 0, gameTime = 0, currentPlayer;
     float p1_120, p1_300, p2_120, p2_300;
+    QString print_text;
+    void setGameInfoText(QString,short);
 };
 #endif // MAINWINDOW_H

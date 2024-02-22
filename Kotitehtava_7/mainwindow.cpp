@@ -41,10 +41,10 @@ void MainWindow::my_timeout()
         }
     }
     if(player1Time == 0){
-        ui->showing_label->setText("Player 2 WON!! Press stop game button");
+        setGameInfoText("Player 2 WON!! Press stop game button", 22);
     }
     else if(player2Time == 0){
-        ui->showing_label->setText("Player 1 WON!! Press stop game button");
+        setGameInfoText("Player 1 WON!! Press stop game button", 22);
     }
 }
 
@@ -65,8 +65,7 @@ void MainWindow::on_sec150_Btn_clicked()
     gameTime = 120;
     player1Time = 120;
     player2Time = 120;
-    QString text_ready = "Ready to play playtime 120 sec..Press start button";
-    ui->showing_label->setText(text_ready);
+    setGameInfoText("Ready to play playtime 120 sec..Press start button", 12);
     ui->player1_progressBar->setValue(100);
     ui->player2_progressBar->setValue(100);
 }
@@ -77,8 +76,7 @@ void MainWindow::on_min5_Btn_clicked()
     gameTime = 300;
     player1Time = 300;
     player2Time = 300;
-    QString text_ready = "Ready to play playtime 5 min..Press start button";
-    ui->showing_label->setText(text_ready);
+    setGameInfoText("Ready to play playtime 5 min..Press start button", 12);
     ui->player1_progressBar->setValue(100);
     ui->player2_progressBar->setValue(100);
 }
@@ -90,7 +88,7 @@ void MainWindow::on_startGame_Btn_clicked()
     myTimerObject1->setInterval(1000);
     myTimerObject1->start();
     currentPlayer = 1;
-    ui->showing_label->setText("Game ongoing");
+    setGameInfoText("Game ongoing", 24);
     p1_120 = 100.00;
     p1_300 = 100.00;
     p2_120 = 100.00;
@@ -104,7 +102,7 @@ void MainWindow::on_stopGame_Btn_clicked()
     ui->player2_progressBar->setValue(0);
     myTimerObject1->stop();
     myTimerObject1->disconnect();
-    ui->showing_label->setText("New game? Select playtime and then start button");
+    setGameInfoText("New game? Select playtime and then start button", 14);
 }
 
 
@@ -117,5 +115,15 @@ void MainWindow::on_player1_progressBar_valueChanged(int value)
 void MainWindow::on_palyer2_progressBar_valueChanged(int value)
 {
     ui->player2_progressBar->setValue(value);
+}
+
+void MainWindow::setGameInfoText(QString text, short fontZize)
+{
+   ui->showing_label->setText(text);
+
+   QFont font;
+   font.setPointSize(fontZize);
+   ui->showing_label->setFont(font);
+
 }
 
